@@ -3,6 +3,7 @@
 isPresent=$((RANDOM%3));
 Wage_Per_Hour=20;
 Working_Hour=0;
+Month=20;
 #Part_Time_Hour=4; 
 
 case $isPresent in
@@ -23,5 +24,7 @@ case $isPresent in
 esac
 
 dailyWage=$(($Wage_Per_Hour * $Working_Hour));
+mWage=$(($dailyWage * $Month));
 
 echo "Employee Daily Wage is : " $dailyWage;
+echo "Employee Monthly Wage is : " $mWage;

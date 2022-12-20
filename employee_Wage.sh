@@ -1,5 +1,4 @@
- #!/bin/bash
-
+ #!/bin/bashs
 
 isPresent=$((RANDOM%3));
 Wage_Per_Hour=20;

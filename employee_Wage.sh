@@ -1,23 +1,28 @@
  #!/bin/bash
 
+
+isPresent=$((RANDOM%3));
 Wage_Per_Hour=20;
-Working_Hour=8;
-Part_Time_Hour=4; 
+Working_Hour=0;
+#Part_Time_Hour=4; 
 
-echo "Welcome to Employee wage computation";
+case $isPresent in
+	0)
+		echo "Employee is Absent";
+		Working_Hour=0;
+	;;
+	
+	1)
+		echo "Employee is Present";
+		Working_Hour=8;
+	;;
+	
+	2)
+		echo "Employee is working as part time";
+		Working_Hour=4;
+	;;
+esac
 
-isPresent=$((RANDOM%3));	#0 1 2
+dailyWage=$(($Wage_Per_Hour * $Working_Hour));
 
-if [ $isPresent -eq 0 ]
-then 
-	echo "Employee is Absent";
-elif [ $isPresent -eq 1 ]
-then
-	echo "Employee is Present";
-	dailyWage=$(($Wage_Per_Hour * $Working_Hour));
-	echo "PreDay Daily Wage is : "$dailyWage;
-else
-	echo "Employee is working as part time";
-	dWage=$(($Wage_Per_Hour * $Part_Time_Hour));
-	echo "Part time daily Wage is : "$dWage;
-fi
+echo "Employee Daily Wage is : " $dailyWage;
